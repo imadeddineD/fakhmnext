@@ -21,7 +21,7 @@ export async function POST(
       sender,
       subject: `رسالة من  ${name}- فخم البن`,
       message ,
-      receipients: [{ name: "فخم البن", address: "imadeddinedjemmah@gmail.com" }]
+      receipients: [{ name: "فخم البن", address: "fkhmalbn@gmail.com" }]
     })
 
     return Response.json({
