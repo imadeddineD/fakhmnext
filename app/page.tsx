@@ -14,17 +14,17 @@ import { db } from "@/lib/db";
 
 export default async function Home() {
 
-  const products = await getProducts()
+  const products = await db.product.findMany()
 
-  const categories = await getCategories()
+  const categories = await db.categories.findMany()
 
-  const home  = await getHome()
-
-  const about = await getAbout()
+  const home  = await db.home.findMany()
 
 
-  console.log(categories)
+  const about = await db.about.findMany()
 
+
+// console.log(about)
 
 
   return (
@@ -39,3 +39,5 @@ export default async function Home() {
     </body> 
   );
 }
+
+

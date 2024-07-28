@@ -1,5 +1,5 @@
 
-const URL = `https://fakhmnextadmin-qey8.vercel.app/api/categories`;
+const URL = `http://localhost:3001/api/categories`;
 
 const getCategories = async (): Promise<any> => {
 

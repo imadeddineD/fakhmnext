@@ -118,7 +118,7 @@ import { FaRegHeart, FaShoppingBag } from 'react-icons/fa'
 
 interface Product {
   id: string;
-  label: string;
+  name: string;
   price: number;
   imageUrl: string;
   categoryId: string;
@@ -148,8 +148,8 @@ const Products: React.FC<ProductsProps> = ({ products, categories }) => {
           <div className="product-content">
             {products.filter(product => product.categoryId === category.id).map(product => (
               <div className="product-box" key={product.id}>
-                <Image src={product.imageUrl} alt={product.label} width={200} height={200} />
-                <h2>{product.label}</h2>
+                <Image src={product.imageUrl} alt={product.name} width={200} height={200} />
+                <h2>{product.name}</h2>
                 <div className="product-info">
                   <span>{product.price}SAR</span>
                   {/* <FaRegHeart className="bx bx-heart heart-icon" />
