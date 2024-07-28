@@ -1,5 +1,5 @@
 
-const URL = `https://fakhmnextadmin.vercel.app/api/home`;
+const URL = `https://fakhmnextadmin-qey8.vercel.app/api/home`;
 
 const getHome = async (): Promise<any> => {
 
