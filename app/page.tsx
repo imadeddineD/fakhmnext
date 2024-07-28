@@ -1,5 +1,7 @@
-
-
+import getAbout from "@/actions/getAbout";
+import getCategories from "@/actions/getCategories";
+import getHome from "@/actions/getHome";
+import getProducts from "@/actions/getProducts";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -12,76 +14,28 @@ import { db } from "@/lib/db";
 
 export default async function Home() {
 
-  const product = await db.product.findMany({
-    orderBy: {
-        createdAt: 'desc'
-    }
-});
+  const products = await getProducts()
 
-  const categories = await db.categories.findMany({
-    orderBy: {
-        createdAt: 'desc'
-    }
-});
+  const categories = await getCategories()
 
-  const home = await db.home.findMany({
-    orderBy: {
-        createdAt: 'desc'
-    }
-});
+  const home  = await getHome()
 
-  const about = await db.about.findMany({
-    orderBy: {
-        createdAt: 'desc'
-    }
-});
+  const about = await getAbout()
 
-const formattedProducts : any = product.map((item) => ({
-    id: item.id,
-    label: item.name,
-    price  : item.price ,
-    imageUrl  : item.imageUrl ,
-    categoryId : item.categoryId
-}))
 
-const formattedCategories : any = categories.map((item) => ({
-    id: item.id,
-    label: item.name,
-}))
-
-const formattedHome : any = home.map((item) => ({
-    id: item.id,
-    label: item.label,
-    description: item.description,
-    imageUrl: item.imageUrl,
-}))
-
-const formattedAbout : any = about.map((item) => ({
-    id: item.id,
-    imageUrl: item.imageUrl,
-    description: item.description,
-}))
-
-console.log("this is the products : ")
-console.log(formattedProducts)
-
-console.log("this is the Categories : ")
-console.log(formattedCategories)
-
+  console.log(categories)
 
 
 
   return (
     <body className="">
       <Header/>
-      <HomePage data={formattedHome}/>
-      <About data={formattedAbout}/>
-      <Products 
-      products={formattedProducts} categories={formattedCategories}
-      />
+      <HomePage data={home}/>
+      <About data={about}/>
+      <Products products={products} categories={categories}/>
       <Contact/>
       <Whats/>
       <Footer/>
-    </body>
+    </body> 
   );
 }

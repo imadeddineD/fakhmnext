@@ -43,7 +43,7 @@ const HomePage = ({data} : any) => {
 
       const [formData, setFormData] = useState({
         name: '',
-        email: '',
+        number: "",
         message: ''
       });
 
@@ -73,7 +73,7 @@ const HomePage = ({data} : any) => {
             toast.success(toastMessage);
             setFormData({
               name: '',
-              email: '',
+              number: "",
               message: ''
             })
           } catch (error : any) {
@@ -128,10 +128,10 @@ const HomePage = ({data} : any) => {
               </div>
               <div className="form-group">
                 <input 
-                type="email" 
-                name="email" 
-                placeholder="بريدك الالكتروني"
-                value={formData.email}
+                type="text" 
+                name="number" 
+                placeholder="رقم الهاتف"
+                value={formData.number}
                 onChange={handleChange}  />
               </div>
               <div className="form-group">

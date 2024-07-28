@@ -8,14 +8,14 @@ export async function POST(
     try {
         const body = await req.json();
 
-        const { name, email , message } = body;
+        const { name, number , message } = body;
 
         
         if (!name) {
             return new NextResponse("name is required", { status: 400 });
         }
 
-        if (!email) {
+        if (!number) {
             return new NextResponse("Image URL is required", { status: 400 });
         }
 
@@ -28,7 +28,7 @@ export async function POST(
         const Home = await db.order.create({
             data: {
                 name,
-                email,
+                number,
                 message
             }
         });

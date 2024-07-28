@@ -126,7 +126,7 @@ interface Product {
 
 interface Category {
   id: string;
-  label: string;
+  name: string;
 }
 
 interface ProductsProps {
@@ -144,7 +144,7 @@ const Products: React.FC<ProductsProps> = ({ products, categories }) => {
 
       {categories.map((category) => (
         <React.Fragment key={category.id}>
-          <h3>{category.label}</h3>
+          <h3>{category.name}</h3>
           <div className="product-content">
             {products.filter(product => product.categoryId === category.id).map(product => (
               <div className="product-box" key={product.id}>
