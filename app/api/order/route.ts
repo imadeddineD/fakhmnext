@@ -33,6 +33,15 @@ export async function POST(
             }
         });
 
+        await db.notification.create({
+            data : {
+                title : "طلب جديد" , 
+                message : `لديك طلب جديد من ${Home.name}`,
+                orderId : Home.id , 
+            }
+        })
+
+
         return NextResponse.json(Home);
     } catch (error) {
         console.log('[HOME_POST]', error);

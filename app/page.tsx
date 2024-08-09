@@ -1,7 +1,3 @@
-import getAbout from "@/actions/getAbout";
-import getCategories from "@/actions/getCategories";
-import getHome from "@/actions/getHome";
-import getProducts from "@/actions/getProducts";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -19,7 +15,6 @@ export default async function Home() {
   const categories = await db.categories.findMany()
 
   const home  = await db.home.findMany()
-
 
   const about = await db.about.findMany()
 
